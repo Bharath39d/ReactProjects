@@ -19,7 +19,40 @@ function App() {
     </main>
   );
 }
-
+export interface IScopingSectionC {
+  SLNo: string;
+  PrimaryStatement: string;
+  CategoryName: string;
+  Group: string;
+  Alias: string;
+  LeadSheetThreshold: string;
+  ProcessMapThreshold: string;
+  PreparerMapThreshold: string;
+  AccountType: string;
+  AccountSubtype: string;
+  AccountClass: string;
+  AccountSubclass: string;
+  GLAccounts: string;
+  AccountClassALL: string;
+  AccountSubclassALL: string;
+  GLAccountsALL: string;
+  ColorIndex: string;
+  IFRS: string;
+  CommonSelectionThresholds: string;
+  MultipleSubmission: string;
+  ActivityAnalysisAboveThreshold: string;
+  QualitativeFactors: string;
+  AccountTypeALL: string;
+  AccountSubtypeALL: string;
+  ImportGroupName: string;
+  ServerGroupName: string;
+  Testing: string;
+  OSJESelection: string;
+  S2C: string;
+  CheckboxValue: string;
+  AnalysisSelection: string;
+  Analysis: string;
+}
 
 private renderSectionC = () => {
     const { DigiGAMSectionC } = this.state;
