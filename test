@@ -1,1 +1,7 @@
+ private parseFinancialYear(fyString) {
+    // Extract the starting year from the string (e.g., "22" from "FY 22-23")
+    let year = parseInt(fyString.split(" ")[1].split("-")[0], 10); 
+    // Convert it to a full year (e.g., "2022" from "22")
+    return 2000 + year;
+  }
 
