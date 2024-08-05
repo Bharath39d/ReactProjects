@@ -5,3 +5,15 @@
     return 2000 + year;
   }
 
+private parseFinancialYear(fyString) {
+    let yearPart = fyString.split(" ")[1];
+    
+    if (yearPart.includes("-")) {
+        // Format: FY 24-25
+        let year = parseInt(yearPart.split("-")[0], 10);
+        return 2000 + year;
+    } else {
+        // Format: FY 2025
+        return parseInt(yearPart, 10);
+    }
+}
