@@ -18,3 +18,25 @@
     // return `FY ${fiscalYear}`;
     this.getItems();
   };
+
+
+private getCurrentFiscalYear = () => {
+  const today = new Date();
+  const fiscalYearStartMonth = 6; // July is month 6 (zero-based index)
+  let fiscalYear;
+  
+  if (today.getMonth() + 1 >= fiscalYearStartMonth) {
+    fiscalYear = `${today.getFullYear().toString().slice(-2)}-${(today.getFullYear() + 1).toString().slice(-2)}`;
+  } else {
+    fiscalYear = `${(today.getFullYear() - 1).toString().slice(-2)}-${today.getFullYear().toString().slice(-2)}`;
+  }
+  
+  const selectedYear = `FY ${fiscalYear}`;
+  this.setState({ selectedYear });
+  
+  // Assuming there is a method to set the default value for the dropdown
+  this.setDefaultDropdownValue(selectedYear);
+  
+  this.getItems();
+};
+
