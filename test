@@ -1,1 +1,55 @@
 
+class YourComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedYear: this.getCurrentFiscalYear(),
+      dummyItems: [], // Initialize other states as needed
+      items: [],
+      YearOptions: [], // Initialize year options if needed
+    };
+  }
+
+  componentDidMount() {
+    this.getItems();
+  }
+
+  private getCurrentFiscalYear = () => {
+    const today = new Date();
+    const fiscalYearStartMonth = 6; // July is month 6 (zero-based index)
+    let fiscalYear;
+
+    if (today.getMonth() + 1 >= fiscalYearStartMonth) {
+      fiscalYear = `${today.getFullYear().toString().slice(-2)}-${(today.getFullYear() + 1).toString().slice(-2)}`;
+    } else {
+      fiscalYear = `${(today.getFullYear() - 1).toString().slice(-2)}-${today.getFullYear().toString().slice(-2)}`;
+    }
+
+    return `FY ${fiscalYear}`;
+  };
+
+  private getItems = () => {
+    // Your logic to fetch items goes here
+  };
+
+  render() {
+    return (
+      <Dropdown
+        onChange={(e, option) => {
+          const filteredItems = this.state.dummyItems.filter(
+            (each) => each.Year === option.text
+          );
+          this.setState({
+            selectedYear: option.text,
+            items: filteredItems,
+          });
+        }}
+        selectedKey={this.state.selectedYear}
+        placeholder="Year"
+        options={this.state.YearOptions}
+        styles={this.dropdownStyles}
+        style={{ outlineColor: "transparent", width: "150px" }}
+      />
+    );
+  }
+}
