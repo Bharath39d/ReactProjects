@@ -11,3 +11,16 @@
     // return `FY ${fiscalYear}`;
     this.getItems();
   };
+private getCurrentFiscalYear = () => {
+  const today = new Date();
+  const fiscalYearStartMonth = 6; // July is month 6 (zero-based index)
+  let fiscalYear;
+  if (today.getMonth() + 1 >= fiscalYearStartMonth) {
+    fiscalYear = `${(today.getFullYear() + 1).toString()}`;
+  } else {
+    fiscalYear = `${today.getFullYear().toString()}`;
+  }
+  this.setState({ selectedYear: `FY ${fiscalYear}` });
+  // return `FY ${fiscalYear}`;
+  this.getItems();
+};
