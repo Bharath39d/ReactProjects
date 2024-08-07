@@ -1,16 +1,1 @@
- <Dropdown
-              onChange={(e, option) => {
-                const filteredItems = this.state.dummyItems.filter(
-                  (each) => each.Year === option.text
-                );
-                this.setState({
-                  selectedYear: option.text,
-                  items: filteredItems,
-                });
-              }}
-              selectedKey={this.state.selectedYear}
-              placeholder="Year"
-              options={this.state.YearOptions}
-              styles={this.dropdownStyles}
-              style={{ outlineColor: "transparent", width: "150px" }}
-            />
+
